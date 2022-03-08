@@ -1,4 +1,4 @@
-package ru.vood.gitgubdowload
+package ru.vood.githubdowload
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest

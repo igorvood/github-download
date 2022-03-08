@@ -1,4 +1,4 @@
-package ru.vood.gitgubdowload
+package ru.vood.githubdowload
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
