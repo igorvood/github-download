@@ -6,10 +6,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 import ru.vood.githubdowload.service.dto.RepoInfo
-import java.io.BufferedReader
-import java.io.File
-import java.io.IOException
-import java.io.InputStreamReader
+import java.io.*
 
 
 @Service
@@ -26,9 +23,9 @@ class DownLoadService(/*private val  saveFolder: SaveFolder*/) {
         val infoFile = infoFolder + infoFileName
         val repoFolder = "$infoFolder${repoInfo.name}"
 
-        val fl: Boolean = downLoadNeed(infoFile)
+        val fl: Boolean = downLoadNeed(infoFile,repoInfo)
         if (fl) {
-//            clone(repoInfo, repoFolder)
+            clone(repoInfo, repoFolder)
             writeInfo(infoFile, repoInfo)
 
 
@@ -61,17 +58,35 @@ class DownLoadService(/*private val  saveFolder: SaveFolder*/) {
 
     private fun writeInfo(infoFile: String, repoInfo: RepoInfo) {
         val file = File(infoFile)
-        file.deleteOnExit()
+        if (file.exists()){
+            file.delete()
+        }
+
         val writeValueAsString = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(repoInfo)
 
+
+
+        val fileWriter = FileWriter(infoFile)
+        val printWriter = PrintWriter(fileWriter)
+        printWriter.print(writeValueAsString)
+        printWriter.close()
+
+/*
 //        file.bufferedWriter().use { out -> out.write(writeValueAsString) }
         file.appendText(writeValueAsString)
 //        file.writeText(writeValueAsString)
+*/
     }
 
-    private fun downLoadNeed(infoFile: String): Boolean {
+    private fun downLoadNeed(infoFile: String, repoInfoCurrent: RepoInfo): Boolean {
         val file = File(infoFile)
-        return !file.exists()
+        val b = if (file.exists()) {
+            val readText = file.readText()
+            val repoInfoOld = mapper.readValue(readText, RepoInfo::class.java)
+            !repoInfoOld.updated_at.equals(repoInfoCurrent.updated_at)
+        } else true
+        return b
+//        return !file.exists()
     }
 
 }
