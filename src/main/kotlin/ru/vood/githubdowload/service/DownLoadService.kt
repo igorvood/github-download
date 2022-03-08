@@ -5,16 +5,19 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import ru.vood.githubdowload.service.Const.infoFileName
+import ru.vood.githubdowload.service.Const.rootFolder
 import ru.vood.githubdowload.service.dto.RepoInfo
 import java.io.*
 
 
 @Service
-class DownLoadService(/*private val  saveFolder: SaveFolder*/) {
+class DownLoadService(/*private val  saveFolder: SaveFolder*/
+private val zipService: ZipService
+) {
 
-    private val rootFolder = "D:\\temp\\github"
     private val log: Logger = LoggerFactory.getLogger(RepoReadService::class.java)
-    private val infoFileName = "RepoInfo.json"
+
     val mapper = jacksonObjectMapper().registerModule(KotlinModule())
 
     fun run(repoInfo: RepoInfo) {
@@ -24,10 +27,10 @@ class DownLoadService(/*private val  saveFolder: SaveFolder*/) {
         val repoFolder = "$infoFolder${repoInfo.name}"
 
         val fl: Boolean = downLoadNeed(infoFile,repoInfo)
-        if (fl) {
-            clone(repoInfo, repoFolder)
+        if (fl || true) {
+//            clone(repoInfo, repoFolder)
             writeInfo(infoFile, repoInfo)
-
+            zipService.zip(repoFolder)
 
             log.info("$userName/${repoInfo.name}-> Done see in folder $repoFolder")
         } else {
