@@ -2,3 +2,5 @@ app:
   users:
     - igorvood
 
+save:
+  folder: D:\temp\github\

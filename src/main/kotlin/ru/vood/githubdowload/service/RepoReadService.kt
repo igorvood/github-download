@@ -9,11 +9,22 @@ import ru.vood.githubdowload.service.dto.RepoInfo
 import ru.vood.githubdowload.service.dto.UserGithubInfo
 
 @Service
-class RepoReadService(private val restTemplate: RestTemplate) {
+class RepoReadService(
+    private val restTemplate: RestTemplate,
+    private val downLoadService: DownLoadService,
+
+    ) {
     private val log: Logger = LoggerFactory.getLogger(RepoReadService::class.java)
     fun reposRead(userGithubInfo: UserGithubInfo, s: String) {
-        val forEntity = restTemplate.getForEntity<List<RepoInfo>>(userGithubInfo.repos_url)
-        val repoInfoList = forEntity.body
+
+//        val forObject = restTemplate.getForObject(userGithubInfo.repos_url, List<RepoInfo>::class.java)
+        val forEntity = restTemplate.getForEntity(userGithubInfo.repos_url, Array<RepoInfo>::class.java)
+        val repoInfoList = forEntity.body!!
+
+        repoInfoList.take(1).forEach {
+            downLoadService.run(it)
+        }
+
         log.info(repoInfoList.toString())
     }
 }
