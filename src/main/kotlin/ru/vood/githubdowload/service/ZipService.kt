@@ -17,6 +17,9 @@ class ZipService {
         val parent = file1.parent
         zipFolder(parent, "$file.zip", scanDirectory)
 
+        if (file1.exists() && file1.isDirectory){
+            file1.deleteRecursively()
+        }
     }
 
 

@@ -71,7 +71,7 @@ data class RepoInfo(
     val archived: Boolean,//": false,
     val disabled: Boolean,//": false,
     val open_issues_count: Double,//": 0,
-    val license: String?,//": null,
+//    val license: String?,//": null,
     val allow_forking: Boolean,//": true,
     val is_template: Boolean,//": false,
 //val topics": [],
