@@ -21,7 +21,7 @@ class RepoReadService(
         val forEntity = restTemplate.getForEntity(userGithubInfo.repos_url, Array<RepoInfo>::class.java)
         val repoInfoList = forEntity.body!!
 
-        repoInfoList.take(1).forEach {
+        repoInfoList/*.take(1)*/.forEach {
             downLoadService.run(it)
         }
 

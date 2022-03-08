@@ -27,8 +27,8 @@ private val zipService: ZipService
         val repoFolder = "$infoFolder${repoInfo.name}"
 
         val fl: Boolean = downLoadNeed(infoFile,repoInfo)
-        if (fl || true) {
-//            clone(repoInfo, repoFolder)
+        if (fl /*|| true*/) {
+            clone(repoInfo, repoFolder)
             writeInfo(infoFile, repoInfo)
             zipService.zip(repoFolder)
 
