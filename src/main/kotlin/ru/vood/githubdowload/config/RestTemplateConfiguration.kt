@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate
 
 
 @Configuration
-class RestTemplate11111 {
+class RestTemplateConfiguration {
 
     @Bean
     fun restTemplate(b: RestTemplateBuilder): RestTemplate {
