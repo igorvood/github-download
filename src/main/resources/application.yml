@@ -1,6 +1,7 @@
 app:
   users:
     - igorvood
+    - xpinjection
 
 save:
   folder: D:\temp\github\
