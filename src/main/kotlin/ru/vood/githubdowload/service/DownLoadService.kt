@@ -16,7 +16,7 @@ class DownLoadService(/*private val  saveFolder: SaveFolder*/
 private val zipService: ZipService
 ) {
 
-    private val log: Logger = LoggerFactory.getLogger(RepoReadService::class.java)
+    private val log: Logger = LoggerFactory.getLogger(DownLoadService::class.java)
 
     val mapper = jacksonObjectMapper().registerModule(KotlinModule())
 
@@ -28,8 +28,10 @@ private val zipService: ZipService
 
         val fl: Boolean = downLoadNeed(infoFile,repoInfo)
         if (fl /*|| true*/) {
+            log.info("$userName/${repoInfo.name}-> Clone, see in folder $repoFolder")
             clone(repoInfo, repoFolder)
             writeInfo(infoFile, repoInfo)
+            log.info("$userName/${repoInfo.name}-> Zip, see in folder $repoFolder")
             zipService.zip(repoFolder)
 
             log.info("$userName/${repoInfo.name}-> Done see in folder $repoFolder")
