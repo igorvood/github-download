@@ -1,11 +1,11 @@
 app:
   users:
-#    - igorvood
-#    - xpinjection
-#    - Jeka1978
+    - igorvood
+    - xpinjection
+    - Jeka1978
     - Baeldung
-#    - eugenp
-#    - yegor256
+    - eugenp
+    - yegor256
 
 save:
-  folder: D:\temp\github\
+  folder: D:\temp\github_2022_03_15\
