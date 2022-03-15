@@ -2,8 +2,10 @@ app:
   users:
 #    - igorvood
 #    - xpinjection
-    - Jeka1978
+#    - Jeka1978
+    - Baeldung
 #    - eugenp
 #    - yegor256
+
 save:
   folder: D:\temp\github\
