@@ -1,9 +1,9 @@
 app:
   users:
-    - igorvood
-    - xpinjection
+#    - igorvood
+#    - xpinjection
     - Jeka1978
-    - eugenp
-    - yegor256
+#    - eugenp
+#    - yegor256
 save:
-  folder: D:\temp\github\RepoReadService
+  folder: D:\temp\github\
