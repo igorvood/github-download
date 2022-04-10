@@ -5,14 +5,15 @@ import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
+import ru.vood.githubdowload.property.SaveFolder
 import ru.vood.githubdowload.service.Const.infoFileName
-import ru.vood.githubdowload.service.Const.rootFolder
+
 import ru.vood.githubdowload.service.dto.RepoInfo
 import java.io.*
 
 
 @Service
-class DownLoadService(/*private val  saveFolder: SaveFolder*/
+class DownLoadService(private val  saveFolder: SaveFolder,
 private val zipService: ZipService
 ) {
 
@@ -22,7 +23,7 @@ private val zipService: ZipService
 
     fun run(repoInfo: RepoInfo) {
         val userName = repoInfo.full_name.split("/")[0]
-        val infoFolder = "${rootFolder}\\$userName\\${repoInfo.name}\\"
+        val infoFolder = "${saveFolder.folder}\\$userName\\${repoInfo.name}\\"
         val infoFile = infoFolder + infoFileName
         val repoFolder = "$infoFolder${repoInfo.name}"
 
