@@ -1,17 +1,15 @@
 app:
   users:
+    - igorvood
     - Jeka1978
     - lavcraft
-    - igorvood
-
-      #    - xpinjection
-
-      #    - RSocket
-#    - xpinjection
-#    - Baeldung
-#    - eugenp
-#    - yegor256
+    - xpinjection
+    - RSocket
+    - xpinjection
+    - Baeldung
+    - eugenp
+    - yegor256
 
 
 save:
-  folder: D:\temp\github_2022_03_17\
+  folder: D:\temp\github_2022_04_10\
