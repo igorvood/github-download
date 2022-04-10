@@ -7,6 +7,7 @@ import org.springframework.web.client.RestTemplate
 import ru.vood.githubdowload.property.SaveFolder
 import ru.vood.githubdowload.service.dto.RepoInfo
 import ru.vood.githubdowload.service.dto.UserGithubInfo
+import java.lang.Math.ceil
 import java.lang.Math.round
 
 @Service
@@ -18,7 +19,7 @@ class RepoReadService(
     private val log: Logger = LoggerFactory.getLogger(RepoReadService::class.java)
     fun reposRead(userGithubInfo: UserGithubInfo, s: String) {
 
-        val cntPages = round(userGithubInfo.public_repos.toDouble() / 30L).toInt()
+        val cntPages = ceil(userGithubInfo.public_repos.toDouble() / 30L).toInt()
 
         val repoInfoList = (1..cntPages)
             .map { n ->

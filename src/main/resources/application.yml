@@ -1,10 +1,10 @@
 app:
   users:
-    - igorvood
+#    - igorvood
 #    - Jeka1978
 #    - lavcraft
 #    - xpinjection
-#    - RSocket
+    - RSocket
 #    - xpinjection
 #    - Baeldung
 #    - eugenp
