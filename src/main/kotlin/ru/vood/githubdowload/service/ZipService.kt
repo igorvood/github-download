@@ -11,7 +11,7 @@ class ZipService {
     fun zip(repoFolder: String) {
         val file1 = File(repoFolder)
         val scanDirectory = scanDirectory(file1)
-        val split = repoFolder.split("\\")
+        val split = repoFolder.split("/")
         val file = split[split.size - 1]
 
         val parent = file1.parent
@@ -29,7 +29,7 @@ class ZipService {
         zipName: String,
         scanDirectory: List<String>
     ) {
-        ZipOutputStream(BufferedOutputStream(FileOutputStream("$zippedDir\\$zipName"))).use { out ->
+        ZipOutputStream(BufferedOutputStream(FileOutputStream("$zippedDir/$zipName"))).use { out ->
             for (file in scanDirectory) {
                 FileInputStream(file).use { fi ->
                     BufferedInputStream(fi).use { origin ->
@@ -48,7 +48,7 @@ class ZipService {
         if (file.isDirectory){
             val list = file.list()
             list.forEach {
-                val nextFile = "${file.path}\\$it"
+                val nextFile = "${file.path}/$it"
                 val file1 = File(nextFile)
                 if (file1.isFile) {
                     result.add(nextFile)

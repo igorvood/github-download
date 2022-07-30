@@ -23,7 +23,7 @@ private val zipService: ZipService
 
     fun run(repoInfo: RepoInfo) {
         val userName = repoInfo.full_name.split("/")[0]
-        val infoFolder = "${saveFolder.folder}\\$userName\\${repoInfo.name}\\"
+        val infoFolder = "${saveFolder.folder}/$userName/${repoInfo.name}/"
         val infoFile = infoFolder + infoFileName
         val repoFolder = "$infoFolder${repoInfo.name}"
 
