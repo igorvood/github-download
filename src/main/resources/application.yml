@@ -12,4 +12,5 @@ app:
 
 
 save:
+#  folder: D:\temp\github_2022_08_30\
   folder: /home/vood/github/
