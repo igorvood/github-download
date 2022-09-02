@@ -1,14 +1,14 @@
 app:
   users:
     - igorvood
-#    - Jeka1978
-#    - lavcraft
-#    - xpinjection
-#    - RSocket
-#    - xpinjection
-#    - Baeldung
-#    - eugenp
-#    - yegor256
+    - Jeka1978
+    - lavcraft
+    - xpinjection
+    - RSocket
+    - xpinjection
+    - Baeldung
+    - eugenp
+    - yegor256
 
 
 save:
