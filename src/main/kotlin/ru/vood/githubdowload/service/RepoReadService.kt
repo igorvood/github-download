@@ -23,10 +23,11 @@ class RepoReadService(
 
         val repoInfoList = (1..cntPages)
             .map { n ->
-                restTemplate.getForEntity(
+                val forEntity = restTemplate.getForEntity(
                     """${userGithubInfo.repos_url}?page=${n}""",
                     Array<RepoInfo>::class.java
                 )
+                forEntity
             }.flatMap { ent ->
                 ent.body!!.toList()
             }
