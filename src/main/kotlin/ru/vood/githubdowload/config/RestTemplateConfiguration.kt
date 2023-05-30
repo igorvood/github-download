@@ -15,7 +15,7 @@ open class RestTemplateConfiguration {
                      gitToken: GitToken
     ): RestTemplate {
         return b
-            .defaultHeader("Authorization", """Bearer ${gitToken.token}""")
+//            .defaultHeader("Authorization", """Bearer ${gitToken.token}""")
             .build()
     }
 }
