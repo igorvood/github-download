@@ -34,10 +34,13 @@ class RepoReadService(
 
         assert(repoInfoList.size >= userGithubInfo.public_repos)
 
-
-        repoInfoList/*.take(1)*/.forEach {
+        repoInfoList.parallelStream().forEach {
             downLoadService.run(it)
         }
+
+//        repoInfoList/*.take(1)*/.forEach {
+//            downLoadService.run(it)
+//        }
 
 //        log.info(repoInfoList.toString())
     }
