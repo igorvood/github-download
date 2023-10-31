@@ -4,18 +4,20 @@ spring:
 
 app:
   users:
-#    - igorvood
-#    - Jeka1978
-#    - lavcraft
-#    - xpinjection
-#    - RSocket
-#    - xpinjection
-#    - Baeldung
-#    - eugenp
-#    - yegor256
-#    - konrad-kaminski
-#    - aabarmin
+    - ionspin
+    - igorvood
+    - Jeka1978
+    - lavcraft
+    - xpinjection
+    - RSocket
+    - xpinjection
+    - Baeldung
+    - eugenp
+    - yegor256
+    - konrad-kaminski
+    - aabarmin
     - spring-framework-guru
+
 
 
 save:
