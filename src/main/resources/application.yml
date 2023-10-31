@@ -5,7 +5,7 @@ spring:
 app:
   users:
 #    - igorvood
-    - ionspin
+#    - ionspin
     - Jeka1978
     - lavcraft
     - xpinjection
