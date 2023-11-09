@@ -33,7 +33,7 @@ private val zipService: ZipService
             clone(repoInfo, repoFolder)
             writeInfo(infoFile, repoInfo)
             log.info("$userName/${repoInfo.name}-> Zip, see in folder $repoFolder")
-//            zipService.zip(repoFolder)
+            zipService.zip(repoFolder)
 
             log.info("$userName/${repoInfo.name}-> Done see in folder $repoFolder")
         } else {
