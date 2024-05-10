@@ -10,7 +10,6 @@ app:
     - lavcraft
     - xpinjection
     - RSocket
-    - xpinjection
     - Baeldung
     - eugenp
     - yegor256
