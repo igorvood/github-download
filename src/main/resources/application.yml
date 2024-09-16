@@ -5,6 +5,7 @@ spring:
 app:
   users:
     - igorvood
+    - arrow-kt
     - inponomarev
 #    - ionspin
     - Jeka1978
@@ -17,7 +18,7 @@ app:
     - konrad-kaminski
     - aabarmin
     - spring-framework-guru
-    - arrow-kt
+
 
 
 
